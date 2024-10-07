@@ -1,39 +1,115 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Layout } from 'antd';
-// import Home from './pages/home';
-import Home from './Components/Pages/home';
-// import Recipes from './pages/Recipes';
-import Recipes from './Components/Pages/Recipes';
-// import About from './pages/About';
-import About from './Components/Pages/About';
-// import SignIn from './pages/SignIn';
-import SignIn from './Components/Pages/SignIn';
-// import SignUp from './pages/SignUp';
-import SignUp from './Components/Pages/SignUp';
-// import Navbar from './Components/Navbar';
-import Navbar from './Components/navBar';
-import AppFooter from './components/Footer';
+import React from 'react';
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
-const { Content } = Layout;
 
-function App() {
+
+
+
+
+
+
+
+
+
+
+const { Header, Content, Sider } = Layout;
+const items1 = ['1', '2', '3'].map((key) => ({
+  key,
+  label: `nav ${key}`,
+}));
+const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
+  const key = String(index + 1);
+  return {
+    key: `sub${key}`,
+    icon: React.createElement(icon),
+    label: `subnav ${key}`,
+    children: new Array(4).fill(null).map((_, j) => {
+      const subKey = index * 4 + j + 1;
+      return {
+        key: subKey,
+        label: `option${subKey}`,
+      };
+    }),
+  };
+});
+const App = () => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
   return (
-    <Router>
+    <Layout>
+      <Header
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <div className="demo-logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+          items={items1}
+          style={{
+            flex: 1,
+            minWidth: 0,
+          }}
+        />
+      </Header>
       <Layout>
-        <Navbar />
-        <Content style={{ padding: '0 50px' }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/recipes" element={<Recipes />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-          </Routes>
-        </Content>
-        <AppFooter />
+        <Sider
+          width={200}
+          style={{
+            background: colorBgContainer,
+          }}
+        >
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{
+              height: '100%',
+              borderRight: 0,
+            }}
+            items={items2}
+          />
+        </Sider>
+        <Layout
+          style={{
+            padding: '0 24px 24px',
+          }}
+        >
+          <Breadcrumb
+            items={[
+              {
+                title: 'Home',
+              },
+              {
+                title: 'List',
+              },
+              {
+                title: 'App',
+              },
+            ]}
+            style={{
+              margin: '16px 0',
+            }}
+          />
+          <Content
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 280,
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
+          >
+            Content
+          </Content>
+        </Layout>
       </Layout>
-    </Router>
+    </Layout>
   );
-}
-
+};
 export default App;
