@@ -1,0 +1,10 @@
+/* Home.css */
+.ant-card {
+    border-radius: 10px;
+  }
+  
+  .ant-card-hoverable:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+  

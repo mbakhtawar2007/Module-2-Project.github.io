@@ -1,0 +1,23 @@
+/* Navbar.css */
+.ant-menu-dark {
+  background-color: #C0392B;
+}
+
+.ant-menu-dark .ant-menu-item a {
+  color: #FFFFFF;
+}
+
+.ant-menu-dark .ant-menu-item:hover {
+  background: #ECF0F1;
+}
+
+.ant-btn-primary {
+  background-color: #ECF0F1;
+  color: #C0392B;
+  border: none;
+}
+
+.ant-btn-primary:hover {
+  background-color: #C0392B;
+  color: #FFFFFF;
+}

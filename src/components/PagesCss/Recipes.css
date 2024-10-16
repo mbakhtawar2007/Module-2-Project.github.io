@@ -1,0 +1,14 @@
+/* Recipes.css */
+.recipe-card {
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .recipe-content {
+    padding: 16px;
+    text-align: center;
+  }
+  
