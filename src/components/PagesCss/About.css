@@ -1,38 +1,59 @@
 /* Slide-in animation for the header */
 .header-slide {
-    background-color: #1B1B1B;
-    color: white;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    animation: slideIn 0.8s ease-out;
+  background-color: #1B1B1B;
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.8s ease-out;
+}
+
+/* Fade-in animation for the content */
+.content-fade {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #1B1B1B;
+  padding: 10px 0;
+}
+
+.footer a:hover {
+  color: #D32F2F;
+  transition: color 0.3s ease;
+}
+
+/* Keyframes for slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
   }
-  
-  /* Fade-in animation for the content */
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .footer a {
+    font-size: 20px;
+  }
+
   .content-fade {
-    animation: fadeIn 1s ease-in;
+    animation: fadeIn 1.2s ease-in;
   }
-  
-  /* Keyframes for slide-in animation */
-  @keyframes slideIn {
-    from {
-      transform: translateY(-50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  /* Keyframes for fade-in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
+}

@@ -4,6 +4,7 @@ import Recipes from './components/Pages/Recipes'
 import About from './components/Pages/About'
 import UploadRecipe from './components/Pages/Upload';
 import RecipeDetails from './components/Pages/RecipeDetails';
+import Video from './components/Pages/Video'
 import Navbar from './components/Navbar';
 import Footer from './components/AppFooter';
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/upload" element={<UploadRecipe />} />
         <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
         <Route path="/about" element={<About />} />
+        <Route path="/video" element={<Video />} />
       </Routes>
       <Footer />
     </Router>

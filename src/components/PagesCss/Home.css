@@ -1,13 +1,33 @@
-/* Home.css */
+/* Dark mode styling */
+.home-container {
+  padding: 20px;
+  background-color: #ECF0F1;
+  transition: background-color 0.3s ease;
+}
+
+.home-container.dark-mode {
+  background-color: #2C3E50;
+  color: white;
+}
+
+/* Header controls (title + dark mode switch) */
+.header-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .ant-card {
-    border-radius: 10px;
-  }
-  
-  .ant-card-hoverable:hover {
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-  }
-  /* Fade-in animation for the title */
+  border-radius: 10px;
+}
+
+.ant-card-hoverable:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Fade-in animation for the title */
 .title-fade {
   animation: fadeIn 1s ease-in;
 }

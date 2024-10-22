@@ -36,12 +36,15 @@ const UploadRecipe = () => {
     <div
       style={{
         padding: '20px',
-        backgroundColor: '#1c1c1c',
-        color: 'white',
+        backgroundColor: '#f5f5f5', // Light grey background
+        color: 'black',
         minHeight: '100vh',
+        fontFamily: 'Roboto, sans-serif', // Apply Roboto font
       }}
     >
-      <h1 style={{ color: '#b30000', textAlign: 'center' }}>Upload Your Recipe</h1>
+      <h1 style={{ color: '#c0392b', textAlign: 'center', fontFamily: 'Lobster, cursive', fontSize: '2.5em', marginBottom: '20px' }}>
+        Upload Your Recipe
+      </h1>
 
       <Form
         layout="vertical"
@@ -49,39 +52,39 @@ const UploadRecipe = () => {
         style={{
           maxWidth: '500px',
           margin: '20px auto',
-          background: 'linear-gradient(135deg, #2c2c2c, #1a1a1a)', // Gradient background
+          background: 'white', // White background for form
           padding: '30px',
           borderRadius: '12px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
           transition: 'all 0.3s ease-in-out',
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 16px #b30000')}
-        onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.3)')}
+        onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 16px #c0392b')}
+        onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)')}
       >
         <Form.Item
           name="title"
-          label="Recipe Title"
+          label={<span style={{ fontWeight: 'bold', fontSize: '1.2em', color: '#c0392b' }}>Recipe Title</span>}
           rules={[{ required: true, message: 'Please enter the recipe title!' }]}
         >
           <Input
             placeholder="Enter a catchy title"
-            style={{ backgroundColor: '#3a3a3a', color: 'white', borderColor: '#b30000' }}
+            style={{ backgroundColor: '#ececec', color: 'black', borderColor: '#c0392b', fontFamily: 'Roboto, sans-serif' }} // Light grey input
           />
         </Form.Item>
 
-        <Form.Item name="description" label="Description">
+        <Form.Item name="description" label={<span style={{ fontWeight: 'bold', fontSize: '1.2em', color: '#c0392b' }}>Description</span>}>
           <Input.TextArea
             rows={4}
             placeholder="Describe your recipe..."
-            style={{ backgroundColor: '#3a3a3a', color: 'white', borderColor: '#b30000' }}
+            style={{ backgroundColor: '#ececec', color: 'black', borderColor: '#c0392b', fontFamily: 'Roboto, sans-serif' }} // Light grey input
           />
         </Form.Item>
 
-        <Form.Item name="category" label="Category">
+        <Form.Item name="category" label={<span style={{ fontWeight: 'bold', fontSize: '1.2em', color: '#c0392b' }}>Category</span>}>
           <Select
             placeholder="Select a category"
             allowClear
-            style={{ backgroundColor: '#3a3a3a', color: 'white', borderColor: '#b30000' }}
+            style={{ backgroundColor: '#ececec', color: 'black', borderColor: '#c0392b', fontFamily: 'Roboto, sans-serif' }} // Light grey input
           >
             <Option value="breakfast">Breakfast</Option>
             <Option value="lunch">Lunch</Option>
@@ -93,7 +96,7 @@ const UploadRecipe = () => {
 
         <Form.Item
           name="video"
-          label="Upload Video"
+          label={<span style={{ fontWeight: 'bold', fontSize: '1.2em', color: '#c0392b' }}>Upload Video</span>}
           rules={[{ required: true, message: 'Please upload a video!' }]}
         >
           <Upload.Dragger
@@ -103,14 +106,14 @@ const UploadRecipe = () => {
             fileList={fileList}
             onChange={handleUploadChange}
             style={{
-              border: '2px dashed #b30000',
+              border: '2px dashed #c0392b',
               padding: '20px',
-              backgroundColor: '#2b2b2b',
+              backgroundColor: '#ececec', // Light grey background for dragger
               borderRadius: '8px',
             }}
           >
             <p className="ant-upload-drag-icon">
-              <UploadOutlined style={{ fontSize: '24px', color: '#b30000' }} />
+              <UploadOutlined style={{ fontSize: '24px', color: '#c0392b' }} />
             </p>
             <p>Click or drag video to this area to upload</p>
           </Upload.Dragger>
@@ -132,9 +135,11 @@ const UploadRecipe = () => {
             htmlType="submit"
             style={{
               width: '100%',
-              backgroundColor: '#b30000',
-              borderColor: '#b30000',
+              backgroundColor: '#c0392b', // Red button
+              borderColor: '#c0392b',
               transition: 'all 0.3s',
+              color: 'white',
+              fontFamily: 'Roboto, sans-serif',
             }}
             onMouseEnter={(e) => (e.target.style.opacity = '0.8')}
             onMouseLeave={(e) => (e.target.style.opacity = '1')}

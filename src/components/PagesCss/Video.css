@@ -1,0 +1,13 @@
+/* src/pages/Video.css */
+.video-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: black;
+  }
+  
+  .video-title {
+    text-align: center;
+    color: #c0392b;
+    font-family: 'Roboto', sans-serif;
+  }
+  

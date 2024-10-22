@@ -1,54 +1,65 @@
-import { Row, Col, Card, Typography } from 'antd';
+import { useState, useEffect } from 'react';
+import { Row, Col, Card, Typography, Button, Switch } from 'antd';
 import { Link } from 'react-router-dom';
-import '../PagesCss/Home.css'; // Import your CSS file
-// import './HomeAnimations.css'; // Importing the new CSS file for animations
+import '../PagesCss/Home.css'; 
 
 const { Title } = Typography;
 
-const Home = () => (
-  <div style={{ padding: '20px', backgroundColor: '#ECF0F1' }}>
-    <Title level={1} className="title-fade" style={{ textAlign: 'center', color: '#C0392B' }}>
-      Discover Amazing Recipes
-    </Title>
-    <Row gutter={[16, 16]} style={{ marginBottom: '20px' }}>
-      <Col xs={24} sm={12} md={8}>
-        <Link to="/recipes/spaghetti-carbonara">
-          <Card
-            hoverable
-            className="card-scale"
-            cover={<img alt="Spaghetti Carbonara" src="https://via.placeholder.com/300" />}
-            style={{ borderRadius: '10px' }}
-          >
-            <Card.Meta title="Spaghetti Carbonara" description="10K Views • 2 days ago" />
-          </Card>
-        </Link>
-      </Col>
-      <Col xs={24} sm={12} md={8}>
-        <Link to="/recipes/chicken-tikka">
-          <Card
-            hoverable
-            className="card-scale"
-            cover={<img alt="Chicken Tikka" src="https://via.placeholder.com/300" />}
-            style={{ borderRadius: '10px' }}
-          >
-            <Card.Meta title="Chicken Tikka Masala" description="25K Views • 1 week ago" />
-          </Card>
-        </Link>
-      </Col>
-      <Col xs={24} sm={12} md={8}>
-        <Link to="/recipes/vegetable-stirfry">
-          <Card
-            hoverable
-            className="card-scale"
-            cover={<img alt="Vegetable Stir Fry" src="https://via.placeholder.com/300" />}
-            style={{ borderRadius: '10px' }}
-          >
-            <Card.Meta title="Vegetable Stir Fry" description="5K Views • 3 days ago" />
-          </Card>
-        </Link>
-      </Col>
-    </Row>
-  </div>
-);
+const Home = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const [favorites, setFavorites] = useState([]);
+  const [recipes, setRecipes] = useState([
+    { id: 1, title: 'Spaghetti Carbonara', views: '10K', date: '2 days ago', img: 'https://via.placeholder.com/300' },
+    { id: 2, title: 'Chicken Tikka Masala', views: '25K', date: '1 week ago', img: 'https://via.placeholder.com/300' },
+    { id: 3, title: 'Vegetable Stir Fry', views: '5K', date: '3 days ago', img: 'https://via.placeholder.com/300' },
+  ]);
+
+  // Handle Dark Mode toggle
+  const toggleDarkMode = (checked) => setDarkMode(checked);
+
+  // Handle adding/removing recipes to favorites
+  const handleFavorite = (recipeId) => {
+    if (favorites.includes(recipeId)) {
+      setFavorites(favorites.filter((id) => id !== recipeId));
+    } else {
+      setFavorites([...favorites, recipeId]);
+    }
+  };
+
+  return (
+    <div className={`home-container ${darkMode ? 'dark-mode' : ''}`}>
+      <div className="header-controls">
+        <Title level={1} className="title-fade">
+          Discover Amazing Recipes
+        </Title>
+        <Switch checked={darkMode} onChange={toggleDarkMode} checkedChildren="Dark" unCheckedChildren="Light" />
+      </div>
+
+      <Row gutter={[16, 16]} style={{ marginBottom: '20px' }}>
+        {recipes.map((recipe) => (
+          <Col xs={24} sm={12} md={8} key={recipe.id}>
+            <Link to={`/recipes/${recipe.title.toLowerCase().replace(/ /g, '-')}`}>
+              <Card
+                hoverable
+                className="card-scale"
+                cover={<img alt={recipe.title} src={recipe.img} />}
+                style={{ borderRadius: '10px' }}
+              >
+                <Card.Meta title={recipe.title} description={`${recipe.views} Views • ${recipe.date}`} />
+              </Card>
+            </Link>
+            <Button
+              type={favorites.includes(recipe.id) ? 'primary' : 'default'}
+              onClick={() => handleFavorite(recipe.id)}
+              style={{ marginTop: '10px' }}
+            >
+              {favorites.includes(recipe.id) ? 'Saved' : 'Save'}
+            </Button>
+          </Col>
+        ))}
+      </Row>
+    </div>
+  );
+};
 
 export default Home;
