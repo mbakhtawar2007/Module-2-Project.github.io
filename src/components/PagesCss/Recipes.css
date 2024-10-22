@@ -11,4 +11,37 @@
     padding: 16px;
     text-align: center;
   }
-  
+  /* Fade-in animation for the title */
+.title-fade {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Slide-up animation for recipe cards */
+.slide-up {
+  animation: slideUp 0.5s ease forwards;
+  opacity: 0; /* Start hidden */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for slide-up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

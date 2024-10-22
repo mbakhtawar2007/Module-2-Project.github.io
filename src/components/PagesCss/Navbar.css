@@ -1,23 +1,108 @@
-/* Navbar.css */
-.ant-menu-dark {
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lobster&display=swap');
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #181818;
+}
+
+/* Header Styling */
+.navbar-header {
+  background: linear-gradient(135deg, #8B0000, #2C2C2C); /* Reddish-black gradient */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo Styling */
+.logo a {
+  font-family: 'Lobster', cursive;
+  font-size: 28px;
+  color: #D3D3D3; /* Silver for the logo */
+  text-decoration: none;
+}
+
+.logo a:hover {
+  color: #E74C3C; /* Light red on hover */
+}
+
+/* Menu Styling */
+.navbar-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navbar-menu .ant-menu-item a {
+  color: #B0B0B0; /* Light grey as default */
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect for Menu Items */
+.navbar-menu .ant-menu-item a:hover {
+  color: #E74C3C; /* Transition to light red on hover */
+  border-bottom: 2px solid #E74C3C; /* Subtle underline */
+}
+
+.navbar-menu .ant-menu-item-selected a {
+  color: #C0392B; /* Darker red when active */
+}
+
+/* Actions Container */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Bell Icon */
+.icon-bell {
+  font-size: 24px;
+  color: #D3D3D3; /* Silver for bell icon */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icon-bell:hover {
+  transform: scale(1.1);
+  color: #E74C3C;
+}
+
+/* Dropdown Arrow */
+.icon-dropdown {
+  color: #D3D3D3; /* Silver for dropdown */
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Upload Button */
+.upload-btn {
   background-color: #C0392B;
-}
-
-.ant-menu-dark .ant-menu-item a {
-  color: #FFFFFF;
-}
-
-.ant-menu-dark .ant-menu-item:hover {
-  background: #ECF0F1;
-}
-
-.ant-btn-primary {
-  background-color: #ECF0F1;
-  color: #C0392B;
+  color: #D3D3D3; /* Silver text on the button */
   border: none;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.ant-btn-primary:hover {
-  background-color: #C0392B;
-  color: #FFFFFF;
+.upload-btn:hover {
+  background-color: #E74C3C; /* Light red on hover */
+  color: #181818; /* Dark background for contrast */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-header {
+    padding: 10px 15px;
+  }
 }

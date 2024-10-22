@@ -7,4 +7,28 @@
     transform: scale(1.05);
     transition: all 0.3s ease;
   }
-  
+  /* Fade-in animation for the title */
+.title-fade {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Scale effect for cards on hover */
+.card-scale {
+  transition: transform 0.3s ease;
+}
+
+.card-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
